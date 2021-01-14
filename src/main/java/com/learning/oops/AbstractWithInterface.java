@@ -3,7 +3,7 @@ package com.learning.oops;
 public class AbstractWithInterface {
 
 	public static void main(String[] args) {
-		LivingBeing1 h=new HumanBeing("Human");
+		LivingBeing1 h=new HumanBeing("Human Being");
 		System.out.println(h.breath());
 		if(h.isSocial())
 			System.out.println("Human is a social animal");

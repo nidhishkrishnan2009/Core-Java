@@ -16,3 +16,19 @@
 3. Running - When thread scheduler pick for running the thread
 4. Non-Runnable- when sleep or wait method is invoked.
 5. Terminated- when stop() method is invoked or run method completes execution and thread is dead.
+
+# Thread Scheduler
+Thread scheduler uses preemptive & time slicing algorithm.
+- Preemptive Algorithm - It works based on the priority of thread. Higher priority thread will be allocated processor.
+- Time slicing algorithm- Each thread will be given time slice for using the processor. When a thread's time slice is over then it will come back to ready pool.
+
+Consider 4 threads  
+- T1- MAX_PRIORITY
+- T2- NORM_PRIORITY
+- T3- "No priority is set which means it has NORM_PRIORITY by default"
+- T4- MIN_PRIORITY
+
+T1 executes first using preemptive algorithm since it has highest priority.
+T2 & T3 got same priority. So they use Time slicing algorithm.
+T4 executes last since it has minimum priority.
+

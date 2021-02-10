@@ -1,13 +1,12 @@
-package com.learning.synchronization;
+package com.learning.multithreading.synchronization;
 
-public class SynchronizedMethod {
+public class WithoutSynchronization {
 	public static void main(String[] args) {
-		Printer p=new Printer();
+		Task t=new Task();
 		Thread t1=new Thread() {
-			
 			@Override
 			public void run() {
-				p.print(5);
+				t.print(5);
 			}
 		};
 		
@@ -15,7 +14,7 @@ public class SynchronizedMethod {
 			@Override
 			public void run()
 			{
-				p.print(100);
+				t.print(100);
 			}
 		};
 		
@@ -24,12 +23,11 @@ public class SynchronizedMethod {
 	}
 }
 
-class Printer{
-	synchronized void print(int n)
-	{
+class Task{
+	public void print(int n) {
 		for(int i=0;i<5;i++)
 		{
-			System.out.println("printing "+i*n);
+			System.out.println("Printing "+i*n);
 		}
 	}
 }

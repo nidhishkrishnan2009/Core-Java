@@ -1,4 +1,4 @@
-package com.learning.synchronization;
+package com.learning.multithreading.synchronization;
 
 import com.learning.multithreading.Constants;
 

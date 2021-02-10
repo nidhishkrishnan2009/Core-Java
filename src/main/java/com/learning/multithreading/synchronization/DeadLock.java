@@ -1,4 +1,4 @@
-package com.learning.synchronization;
+package com.learning.multithreading.synchronization;
 
 /**
  * 
@@ -30,8 +30,7 @@ public class DeadLock {
 						System.out.println("Thread 1 is acting upon " + resource2);
 					}
 				}
-			}
-		};
+			}		};
 
 		Thread t2 = new Thread() {
 			@Override

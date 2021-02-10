@@ -1,15 +1,13 @@
 package com.learning.interview.concurrency;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.ForkJoinTask;
-import java.util.concurrent.RecursiveAction;
 import java.util.concurrent.RecursiveTask;
 import java.util.stream.Collectors;
 
-public class ForkJoinRecursiveAction extends RecursiveTask<String> {
+public class ForkJoinRecursiveTask extends RecursiveTask<String> {
 
 	/**
 	 * 
@@ -18,7 +16,7 @@ public class ForkJoinRecursiveAction extends RecursiveTask<String> {
 	private static final int THRESHOLD=2;
 	private static StringBuilder result=new StringBuilder();
 	private String workLoad;
-	public ForkJoinRecursiveAction(String workLoad) {
+	public ForkJoinRecursiveTask(String workLoad) {
 		this.workLoad=workLoad;
 	}
 	
@@ -26,20 +24,20 @@ public class ForkJoinRecursiveAction extends RecursiveTask<String> {
 	public String compute() {
 		//String result="";
 		if(workLoad.length()>THRESHOLD)
-			return ForkJoinTask.invokeAll(createSubTask(workLoad)).stream().map(ForkJoinRecursiveAction::join).collect(Collectors.joining());
+			return ForkJoinTask.invokeAll(createSubTask(workLoad)).stream().map(ForkJoinRecursiveTask::join).collect(Collectors.joining());
 					
 		else
 			return process(workLoad);
 	}
 	
-	public List<ForkJoinRecursiveAction> createSubTask(String workLoad)
+	public List<ForkJoinRecursiveTask> createSubTask(String workLoad)
 	{
-		List<ForkJoinRecursiveAction> list=new ArrayList<ForkJoinRecursiveAction>();
+		List<ForkJoinRecursiveTask> list=new ArrayList<ForkJoinRecursiveTask>();
 		int strLen=workLoad.length();
 		String half1=workLoad.substring(0,strLen/2);
 		String half2=workLoad.substring(strLen/2, strLen);
-		ForkJoinRecursiveAction half1Fork=new ForkJoinRecursiveAction(half1);
-		ForkJoinRecursiveAction half2Fork=new ForkJoinRecursiveAction(half2);
+		ForkJoinRecursiveTask half1Fork=new ForkJoinRecursiveTask(half1);
+		ForkJoinRecursiveTask half2Fork=new ForkJoinRecursiveTask(half2);
 		list.add(half1Fork);
 		list.add(half2Fork);
 
@@ -55,7 +53,7 @@ public class ForkJoinRecursiveAction extends RecursiveTask<String> {
 	
 	public static void main(String[] args) {
 		ForkJoinPool forkJoinPool=ForkJoinPool.commonPool();
-		ForkJoinRecursiveAction customTask=new ForkJoinRecursiveAction("Nidish Krishnan");
+		ForkJoinRecursiveTask customTask=new ForkJoinRecursiveTask("Nidish Krishnan");
 		forkJoinPool.execute(customTask);
 		System.out.println("Final String ===>"+result.toString());
 		System.out.println(customTask.join());

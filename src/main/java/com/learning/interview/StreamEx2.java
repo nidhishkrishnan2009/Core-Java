@@ -5,7 +5,6 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Map;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -30,7 +29,6 @@ public class StreamEx2 {
 			
 			System.out.println(s);
 			String searchStr="Naija";
-			AtomicInteger index=new AtomicInteger();
 			
 			int idx=0;
 			int strLen=searchStr.length();

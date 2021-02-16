@@ -13,9 +13,9 @@ public class ShutdownHook {
 		
 		T3 t1=new T3();
 		t1.start();
-		for(int i=1;i<10;i++)
+		for(int i=1;i<5;i++)
 		{
-			Thread.sleep(2000);
+			Thread.sleep(1000);
 			System.out.println(i);
 		}
 		

@@ -49,7 +49,7 @@ public class StaticSynchronizedLock {
 }
 
 class Task2{
-	static void print(int n)
+	synchronized static void print(int n)
 	{
 		for(int i=1;i<6;i++)
 		{

@@ -27,7 +27,7 @@ public class SynchronizedMethod {
 class Printer{
 	synchronized void print(int n)
 	{
-		for(int i=0;i<5;i++)
+		for(int i=1;i<6;i++)
 		{
 			System.out.println("printing "+i*n);
 		}

@@ -6,7 +6,7 @@ import com.learning.exceptionhandling.FinalFinalizefinally;
  * 
  * @author Krishnan
  * Garbage collector will remove unreferenced objects from the heap memory and thus helps in efficient 
- * management of memory. JVM calls aGarbage collector automatically. Garbage collector will collect 
+ * management of memory. JVM calls Garbage collector automatically. Garbage collector will collect 
  * only those unreferenced objects created using new keyword. Other objects should be removed
  * as part of clean up operation under finalize method.  
  */
@@ -23,9 +23,9 @@ public class GarbageCollectorExample {
 		e1=e2;
 		Employee e3=new Employee();
 		System.out.println("reference of e3 ="+e3.toString());
-		//by nullify the object reference so taht its actual object will be ungreferenced and thus garbage collected
+		//by nullify the object reference so that its actual object will be unreferenced and thus garbage collected
 		e3=null;
-		//anonymous objects , object with no reference variable are alson garbage collected.
+		//anonymous objects , object with no reference variable are also garbage collected.
 		new Employee();
 		System.gc();
 		Thread.sleep(2000);

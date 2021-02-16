@@ -34,11 +34,11 @@ public class ReentrantMonitor {
 class Task4{
 	public synchronized void m()
 	{
-		System.out.println("m is called");
+		System.out.println("m is called by "+Thread.currentThread().getName());
 		n();
 	}
 	
 	public synchronized void n() {
-		System.out.println("n is called");
+		System.out.println("n is called by "+Thread.currentThread().getName());
 	}
 }

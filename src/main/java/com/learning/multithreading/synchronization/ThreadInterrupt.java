@@ -50,7 +50,7 @@ public class ThreadInterrupt {
 		};
 		
 		t1.start();
-		//Thread stop working for t1 since exception is propogated
+		//Thread stop working for t1 since exception is propagated
 		t1.interrupt();
 		t1.join();
 		t2.start();
@@ -58,7 +58,7 @@ public class ThreadInterrupt {
 		t2.interrupt();
 		t2.join();
 		t3.start();
-		//Thread continues working normally even though no interrupted exception is thrown inthe absence of wait() or sleep()
+		//Thread continues working normally even though no interrupted exception is thrown in the absence of wait() or sleep()
 		t3.interrupt();
 		//Thread.sleep(2000);
 		System.out.println("check t3 is interrupted "+t3.isInterrupted());

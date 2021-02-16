@@ -19,8 +19,9 @@ public class DaemonThread {
 		// If a user thread is set as Daemon thread after calling start() then IllegalThreadSTateException is thrown
 		
 		T4 t3=new T4();
-		t3.start();
 		t3.setDaemon(true);
+		t3.start();
+	
 	}
 }
 

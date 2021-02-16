@@ -10,11 +10,11 @@ public class FunctionExample {
 	
 	public static void main(String[] args) {
 		List<String> list=Arrays.asList("apple","banana","orange");
-		Test t=new Test();
-		Map<String, Integer> result=compute(t::getLength, list);
-		System.out.println(result);
-		Map<String, Integer> filterMapByLength=filterbyLength(t::filterbyLength, result, 5);
-		System.out.println("filterMapByLength===>"+filterMapByLength);
+		TestEx1 t=new TestEx1();
+	//	Map<String, Integer> result=compute(t::getLength, list);
+	//	System.out.println(result);
+		//Map<String, Integer> filterMapByLength=filterbyLength(t::filterbyLength, result, 5);
+	//	System.out.println("filterMapByLength===>"+filterMapByLength);
 	}
 
 	public static <A1,I,K> Map<K, I> compute(Function<K, I> func,List<K> list)

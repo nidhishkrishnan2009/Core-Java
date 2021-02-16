@@ -1,5 +1,6 @@
 package com.learning.interview.concurrency;
 
+import java.lang.Thread.UncaughtExceptionHandler;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Callable;
@@ -7,8 +8,31 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
+import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.TimeUnit;
 
+class CustomThreadFactory implements ThreadFactory{
+
+	@Override
+	public Thread newThread(Runnable r) {
+		// TODO Auto-generated method stub
+		Thread t=new Thread(r);
+		t.setUncaughtExceptionHandler(new UncaughtExceptionHandler() {
+			
+			@Override
+			public void uncaughtException(Thread t, Throwable e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		
+		t.setUncaughtExceptionHandler((thread,ex)->{
+			
+		});
+		return t;
+	}
+	
+}
 public class ExecutorService1 {
 	static final int CALLABLE_TIMEOUT=1000;
 	public static void main(String[] args) throws InterruptedException, ExecutionException {
@@ -20,11 +44,11 @@ public class ExecutorService1 {
 			Thread.sleep(CALLABLE_TIMEOUT);
 			return "Callable task is running";
 		};
-		
+		CustomThreadFactory threadFactory=new CustomThreadFactory();
 		List<Callable<String>> callableList=new ArrayList<Callable<String>>();
 		callableList.add(callableTask);
 		callableList.add(callableTask);
-		ExecutorService executor=Executors.newFixedThreadPool(2);
+		ExecutorService executor=Executors.newFixedThreadPool(2,threadFactory);
 		// Executor submit
 		Future<String> callableFuture= executor.submit(callableTask);
 		try {

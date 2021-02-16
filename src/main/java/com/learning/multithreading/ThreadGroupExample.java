@@ -16,9 +16,11 @@ public class ThreadGroupExample {
 		tg.interrupt();
 		Thread.sleep(1000);
 		t1.start();
+
 		t2.start();
 		t3.start();
 		tg.list();
+		
 
 	}
 }

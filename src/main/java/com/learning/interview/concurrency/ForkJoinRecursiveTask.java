@@ -14,7 +14,6 @@ public class ForkJoinRecursiveTask extends RecursiveTask<String> {
 	 */
 	private static final long serialVersionUID = 233714905799082545L;
 	private static final int THRESHOLD=2;
-	private static StringBuilder result=new StringBuilder();
 	private String workLoad;
 	public ForkJoinRecursiveTask(String workLoad) {
 		this.workLoad=workLoad;
@@ -46,7 +45,6 @@ public class ForkJoinRecursiveTask extends RecursiveTask<String> {
 	
 	public static String process(String workLoad) {
 		String toUpperCase=workLoad.toUpperCase();
-		result.append(toUpperCase);
 		System.out.println(Thread.currentThread().getName()+" is acting upon "+toUpperCase);
 		return toUpperCase;
 	}
@@ -55,7 +53,6 @@ public class ForkJoinRecursiveTask extends RecursiveTask<String> {
 		ForkJoinPool forkJoinPool=ForkJoinPool.commonPool();
 		ForkJoinRecursiveTask customTask=new ForkJoinRecursiveTask("Nidish Krishnan");
 		forkJoinPool.execute(customTask);
-		System.out.println("Final String ===>"+result.toString());
 		System.out.println(customTask.join());
 	}
 }

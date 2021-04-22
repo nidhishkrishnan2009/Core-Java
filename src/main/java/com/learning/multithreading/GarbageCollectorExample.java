@@ -1,7 +1,5 @@
 package com.learning.multithreading;
 
-import com.learning.exceptionhandling.FinalFinalizefinally;
-
 /**
  * 
  * @author Krishnan

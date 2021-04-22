@@ -5,8 +5,7 @@ public class SimpleThread {
 		Thread1 t1=new Thread1();
 		Thread2 r1=new Thread2();
 		Thread t2=new Thread(r1);
-		t1.start();
-		t2.start();
+
 		
 		//Creating thread using anonymous inner class extending thread class
 		Thread t3=new Thread() {
@@ -25,6 +24,8 @@ public class SimpleThread {
 		Thread t4=new Thread(r2);
 		t3.run();
 		t4.run();
+		t1.start();
+		t2.start();
 	}
 }
 
